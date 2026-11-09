@@ -1,0 +1,884 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "App AI API",
+    "version": "1.1.0",
+    "description": "Document pipeline (upload → extract → vector → FAQ → summary), chat, and conversations.\n\nAuthenticate with header `x-api-key` (value = `API_SECRET`)."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3011",
+      "description": "Local"
+    }
+  ],
+  "tags": [
+    { "name": "Upload", "description": "Enqueue document processing" },
+    { "name": "Documents", "description": "Pipeline status, FAQs, summaries, delete" },
+    { "name": "Jobs", "description": "Legacy BullMQ job helpers" },
+    { "name": "Chat", "description": "Proxy to Haystack chat" },
+    { "name": "Conversation", "description": "Conversation history and summaries" },
+    { "name": "Testing", "description": "RAG evaluation: session → upload → ask Excel questions → report" }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Same value as API_SECRET in .env"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Alternative: Authorization Bearer <API_SECRET>"
+      }
+    },
+    "schemas": {
+      "UploadedDocument": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "location": { "type": "string" },
+          "jobId": { "type": "string", "nullable": true },
+          "queue": {
+            "type": "string",
+            "enum": ["docs.priority", "docs.normal"]
+          },
+          "source": {
+            "type": "string",
+            "enum": ["customer", "admin"]
+          },
+          "pipelineStatus": { "type": "string", "example": "queued" },
+          "duplicate": {
+            "type": "boolean",
+            "description": "true when same file hash already existed and force was false"
+          },
+          "forced": { "type": "boolean" }
+        }
+      },
+      "DocumentStatus": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "fileName": { "type": "string", "nullable": true },
+          "source": { "type": "string" },
+          "priority": { "type": "integer" },
+          "location": { "type": "string" },
+          "status": { "type": "string" },
+          "pipelineStatus": {
+            "type": "string",
+            "enum": ["queued", "running", "chat_ready", "completed", "failed"]
+          },
+          "pipelineStep": { "type": "string" },
+          "chatReady": { "type": "boolean" },
+          "pageCount": { "type": "integer", "nullable": true },
+          "pagesDone": { "type": "integer" },
+          "faqCount": { "type": "integer" },
+          "summaryCount": { "type": "integer" },
+          "percent": { "type": "integer" },
+          "error": { "type": "string", "nullable": true },
+          "retryCount": { "type": "integer" },
+          "retryLimit": { "type": "integer" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "step": { "type": "string" },
+                "message": { "type": "string" },
+                "meta": { "type": "object" },
+                "at": { "type": "string", "format": "date-time" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/upload": {
+      "post": {
+        "summary": "Upload documents and enqueue pipeline jobs",
+        "description": "Saves files, creates document rows, enqueues `docs.priority` (customer) or `docs.normal` (admin). Returns 202 immediately — poll GET /documents/{id}.",
+        "tags": ["Upload"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "folder": {
+                    "type": "string",
+                    "description": "Subfolder under UPLOAD_DIR",
+                    "default": "default"
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": ["customer", "admin"],
+                    "default": "admin",
+                    "description": "customer → priority queue + requires session_id; admin → normal queue. Header: x-document-source."
+                  },
+                  "session_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Required when source=customer. Must exist in chat_sessions and active=true. Header: x-session-id."
+                  },
+                  "policy_id": {
+                    "type": "string",
+                    "description": "Optional policy id/number stored on documents. Header: x-policy-id."
+                  },
+                  "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If true, re-enqueue even when the same file hash already exists. If false, return the existing document (duplicate=true)."
+                  },
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                },
+                "required": ["files"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted — jobs enqueued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "uploaded": { "type": "integer" },
+                    "source": { "type": "string" },
+                    "sessionId": { "type": "string", "nullable": true },
+                    "message": { "type": "string" },
+                    "documents": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/UploadedDocument" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No files, or customer upload missing/invalid/inactive session_id"
+          },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "session_id not found in chat_sessions" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/documents/{id}": {
+      "get": {
+        "summary": "Get document pipeline status",
+        "description": "Source of truth for step progress, chat_ready, page/FAQ/summary counts, and event timeline.",
+        "tags": ["Documents"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Document status",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DocumentStatus" }
+              }
+            }
+          },
+          "404": { "description": "Document not found" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete document",
+        "description": "Full delete: uploaded file, Qdrant vectors, FAQs/summaries, pipeline rows, and the document record. Rejected while pipeline_status is running.",
+        "tags": ["Documents"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" },
+            "description": "Document UUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Document deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "format": "uuid" },
+                    "deleted": { "type": "boolean", "example": true },
+                    "fileRemoved": { "type": "boolean" },
+                    "faqsDeleted": { "type": "integer" },
+                    "detail": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid document id (expected UUID)" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Document not found" },
+          "409": {
+            "description": "Document is still processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string" },
+                    "pipelineStatus": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/documents/bulk-delete": {
+      "post": {
+        "summary": "Bulk delete documents",
+        "description": "Deletes up to 50 documents fully (file, Qdrant vectors, FAQs/summaries, pipeline). Skips missing or running documents and reports them in failed[].",
+        "tags": ["Documents"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ids"],
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 50,
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "example": [
+                      "894aaeef-c053-4a4b-9513-6f3cce1c01a2",
+                      "75a70156-4e14-48f8-9ab7-74784e509749"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk delete result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "deleted": {
+                      "type": "array",
+                      "items": { "type": "string", "format": "uuid" }
+                    },
+                    "failed": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string", "format": "uuid" },
+                          "error": { "type": "string" }
+                        }
+                      }
+                    },
+                    "deletedCount": { "type": "integer" },
+                    "failedCount": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No valid ids, or more than 50 ids"
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/documents/{id}/faqs": {
+      "get": {
+        "summary": "List stored FAQs for a document",
+        "tags": ["Documents"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "FAQs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "documentId": { "type": "string", "format": "uuid" },
+                    "faqs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "integer" },
+                          "scope": { "type": "string" },
+                          "category": { "type": "string", "nullable": true },
+                          "question": { "type": "string" },
+                          "answer": { "type": "string" },
+                          "section_id": { "type": "string", "nullable": true },
+                          "section_name": { "type": "string", "nullable": true },
+                          "page_refs": {},
+                          "prompt_version": { "type": "string", "nullable": true },
+                          "needs_review": { "type": "boolean" },
+                          "created_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/documents/{id}/summaries": {
+      "get": {
+        "summary": "List stored section summaries for a document",
+        "tags": ["Documents"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Summaries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "documentId": { "type": "string", "format": "uuid" },
+                    "summaries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "integer" },
+                          "scope": { "type": "string" },
+                          "section_id": { "type": "string", "nullable": true },
+                          "section_name": { "type": "string", "nullable": true },
+                          "page_start": { "type": "integer", "nullable": true },
+                          "page_end": { "type": "integer", "nullable": true },
+                          "summary": { "type": "string" },
+                          "prompt_version": { "type": "string", "nullable": true },
+                          "needs_review": { "type": "boolean" },
+                          "created_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/chat": {
+      "post": {
+        "summary": "Proxy chat requests to Haystack chat service",
+        "tags": ["Chat"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Optional. If provided, messages are persisted."
+                  },
+                  "message": { "type": "string" },
+                  "recent_messages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "role": { "type": "string" },
+                        "content": { "type": "string" }
+                      }
+                    }
+                  },
+                  "summary": { "type": "string", "nullable": true },
+                  "policy_number": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Optional policy identifier to scope retrieval"
+                  },
+                  "policy_name": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Optional policy name to scope retrieval"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Optional company name to scope retrieval"
+                  },
+                  "insurer_name": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Optional insurer name to scope retrieval"
+                  }
+                },
+                "required": ["message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat response from Haystack",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          },
+          "400": { "description": "Bad request" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error or haystack proxy failure" }
+        }
+      }
+    },
+    "/jobs": {
+      "post": {
+        "summary": "Enqueue a legacy BullMQ job",
+        "description": "Prefer POST /upload which enqueues docs.priority / docs.normal automatically.",
+        "tags": ["Jobs"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "data": { "type": "object" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Job enqueued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/jobs/{id}": {
+      "get": {
+        "summary": "Get legacy job status by id",
+        "tags": ["Jobs"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "state": { "type": "string" },
+                    "progress": {},
+                    "returnvalue": { "type": "object" }
+                  }
+                }
+              }
+            }
+          },
+          "404": { "description": "Job not found" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Server error" }
+        }
+      }
+    },
+    "/api/conversations/summaries": {
+      "get": {
+        "summary": "List all conversation summaries",
+        "tags": ["Conversation"],
+        "responses": {
+          "200": {
+            "description": "Conversation summaries fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "conversationId": { "type": "string" },
+                          "summary": { "type": "string" },
+                          "createdAt": { "type": "string", "format": "date-time" },
+                          "updatedAt": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    },
+    "/api/conversations/{conversationId}/messages": {
+      "get": {
+        "summary": "Get conversation messages",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation messages retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "role": { "type": "string" },
+                          "content": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      },
+      "post": {
+        "summary": "Save a conversation message",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": { "type": "string" },
+                  "content": { "type": "string" },
+                  "provider": { "type": "string" },
+                  "model": { "type": "string" },
+                  "usage": { "type": "object" },
+                  "metadata": { "type": "object" }
+                },
+                "required": ["role", "content"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message saved successfully",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": { "message": { "type": "string" } } }
+              }
+            }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete conversation messages",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation messages deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    },
+    "/api/conversations/{conversationId}/summary/generate": {
+      "post": {
+        "summary": "Generate conversation summary",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation summary generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "conversationId": { "type": "string" },
+                        "summary": { "type": "string" },
+                        "isUpdate": { "type": "boolean" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": { "description": "No conversation history found" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    },
+    "/api/conversations/{conversationId}/summary": {
+      "delete": {
+        "summary": "Delete conversation summary",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation summary deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    },
+    "/api/testing/runs": {
+      "post": {
+        "summary": "Start RAG testing pipeline",
+        "description": "Creates a session, uploads a document, waits for ingestion, asks each Excel question in the same session, and stores a report (question, actualAnswer, llmResponse). Field `text` holds run meta such as embedding/model.",
+        "tags": ["Testing"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["document", "text"],
+                "properties": {
+                  "document": { "type": "string", "format": "binary" },
+                  "questions": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Optional .xlsx; defaults to RAG_TEST_QUESTIONS_PATH"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Meta for this run (embedding model, chat model, notes)"
+                  },
+                  "limit": { "type": "integer" },
+                  "force": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": { "description": "Run accepted — poll GET /api/testing/runs/{runId}" },
+          "400": { "description": "Missing document/text or invalid questions file" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "get": {
+        "summary": "List RAG test runs",
+        "tags": ["Testing"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": { "type": "integer", "default": 50 }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Recent runs" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/api/testing/runs/{runId}": {
+      "get": {
+        "summary": "Get RAG test run status",
+        "tags": ["Testing"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Run status" },
+          "404": { "description": "Not found" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/api/testing/runs/{runId}/report": {
+      "get": {
+        "summary": "Get RAG test report",
+        "description": "Full report with question, actualAnswer (Excel), and llmResponse per row.",
+        "tags": ["Testing"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Report JSON" },
+          "404": { "description": "Not found" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    }
+  }
+}

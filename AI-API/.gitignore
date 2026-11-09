@@ -1,0 +1,68 @@
+# --- Secrets (never commit real env files) ---
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# --- Python ---
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Node / TypeScript ---
+node_modules/
+dist/
+*.tsbuildinfo
+.npm
+.yarn/
+.pnpm-store/
+
+# --- API build and local data ---
+api/dist/
+api/node_modules/
+api/uploads/
+api/storage/
+
+# --- Generated pipeline / FAQ output ---
+faqs_general.json
+faqs_specific.json
+skipped_sections.json
+result.json
+
+# --- Uploaded / sample documents (may contain customer policy data) ---
+uploads/
+tmp/
+*.pdf
+*.docx
+*.zip
+
+# --- OCR layout debug images ---
+debug/
+**/debug/extraction/
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

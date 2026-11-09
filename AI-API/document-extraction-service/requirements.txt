@@ -1,0 +1,12 @@
+﻿fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pdfplumber
+pdf2image
+Pillow
+docling
+pytesseract
+paddlepaddle
+paddleocr
+numpy

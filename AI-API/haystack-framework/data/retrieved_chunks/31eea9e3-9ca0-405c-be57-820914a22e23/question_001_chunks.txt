@@ -1,0 +1,387 @@
+================================================================================
+QUESTION 1
+saved_at=2026-10-30T11:41:50.649099+00:00
+conversation_id='31eea9e3-9ca0-405c-be57-820914a22e23'
+query='collision damage covered events policy provision'
+policy_number='MTP/P/MC/2026/6352'
+policy_name=''
+chunk_count=20
+================================================================================
+
+--- Q1 CHUNK 1 START ---
+collection=general
+score=0.61178744
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+Page 1 of 6
+MTP/P/MC/2026/6352
+Vehicle Optional Insurance Policy ﺔﺒﻛﺮﻤﻟا ﻢﺴﺠﻟ يرﺎﻴﺘﺧﻻا ﻦﻴﻣﺄﺘﻟا ﺔﻘﻴﺛو
+This insurance policy shall be considered complementary to the ﻮﻫ ﺎﻤﻛ :ﻢﻗر ﺔﻴﺳﺎﻴﻘﻟا يرﺎﺒﺟﻹا ﻦﻴﻣﺄﺘﻟا ﺔﻘﻴﺛﻮﻟ ﺔﻠﻤﻜﻣ هﺬﻫ ﻦﻴﻣﺄﺘﻟا ﺔﻘﻴﺛو ﺮﺒﺘﻌﺗ
+standard compulsory insurance policy of the number: as shown ﻲﻓ ﻦﻴﺒﻣ ﻮﻫ ﺎﻣ ﺐﺴﺣ :ﻦﻣ ةﺮﺘﻔﻟا ﻲﻄﻐﺗو ،ﻖﻓﺮﻤﻟا ﺔﻘﻴﺛﻮﻟا لوﺪﺟ ﻲﻓ ﺢﺿﻮﻣ
+in attached policy schedule covering the period from: as ﻖﻓﺮﻤﻟا ﺔﻘﻴﺛﻮﻟا لوﺪﺟ
+indicated in the attached document schedule
+Chapter One: The Company's Obligations ﺔﻛﺮﺸﻟا تﺎﻣاﺰﺘﻟا :لوﻷا ﻞﺼﻔﻟا
+The Company shall hereby indemnify the Insured for damage ﻦﻣﺆﻤﻟا ﺔﺒﻛﺮﻤﻟﺎﺑ ﻖﺤﻠﺗ ﺪﻗ ﻲﺘﻟا راﺮﺿﻷا ﻦﻋ ﻪﻟ ﻦﻣﺆﻤﻟا ﺾﻳﻮﻌﺘﺑ ﺔﻛﺮﺸﻟا مﺰﺘﻠﺗ
+that may have been caused to the insured vehicle within the ﺔﺼﺼﺨﻤﻟا قﺮﻄﻟا وأ ةﺪﺒﻌﻤﻟا قﺮﻄﻟا ﻰﻠﻋ ﺎﻬﺗدﺎﻴﻗ ءﺎﻨﺛأ ،ﺔﻟوﺪﻟا دوﺪﺣ ﻦﻤﺿ ﺎﻬﻴﻠﻋ
+borders of the , whilst being driven on paved roads or roads :ﻲﺗﻵا ﻦﻋ ﺔﺠﺗﺎﻨﻟاو ،تﺎﺒﻛﺮﻤﻟا ﺮﻴﺴﻟ
+intended for vehicle traffic, and resulting from the following:
+1. Collision or overturning. .بﻼ
+
+--- Q1 CHUNK 1 END ---
+
+--- Q1 CHUNK 2 START ---
+collection=customer
+score=0.6071194
+document_id=561b12ff-fcff-4f98-bb46-f8df2d4086e5
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance'
+chars=654
+
+## Policy Overview This policy provides Comprehensive and Third Party Liability coverage. ### Coverage and Benefits - Comprehensive Cover and Third Party Liability are covered. - Benefits include: - Personal Accident for Driver - Roadside Assistance (00800973007) - **3 Days Free Small Car Replacement** ### Eligibility and Conditions - The driver must hold a valid license for the vehicle according to traffic laws. - The vehicle must only be used for the purpose for which it is licensed. ### Key Policy Details - Policy Period: **20-Sep-2026 To 19-Sep-2027** - Policy Premium: **QAR 1,000** - Company Liability: As per chapter one/company obligations.
+
+--- Q1 CHUNK 2 END ---
+
+--- Q1 CHUNK 3 START ---
+collection=customer
+score=0.595709
+document_id=aea5c831-1753-4ca3-8c51-64c06ad45a72
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name='MOTOR INSURANCE'
+chars=460
+
+## Policy Overview This policy provides comprehensive coverage including Third Party Liability and Personal Accident benefits. ### Coverage and Benefits - **Comprehensive Cover**, **Third Party Liability**, **Personal Accident Benefit**, **Roadside Assistance** (00800973007), and **3 Days Free Small Car Replacement** are covered. ### Eligibility and Conditions - The driver must hold a valid license. - The vehicle must only be used for its licensed purpose.
+
+--- Q1 CHUNK 3 END ---
+
+--- Q1 CHUNK 4 START ---
+collection=customer
+score=0.5936787
+document_id=7ad5a50c-ee5a-4b33-8c76-2babb7aead73
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance'
+chars=467
+
+## Policy Overview This policy provides Comprehensive Cover and Third Party Liability. ### Coverage and Benefits - Personal Accident Benefit for Driver. - Roadside Assistance (00800973007). - 3 Days Free Small Car Replacement. ### Key Conditions and Details - Policy Period: 20-Sep-2026 to 19-Sep-2027. - Vehicle: FORD MUSTANG (2016), valued at QAR 47,406. - Coverage requires: - Driver must hold a valid license. - Vehicle must only be used for its licensed purpose.
+
+--- Q1 CHUNK 4 END ---
+
+--- Q1 CHUNK 5 START ---
+collection=customer
+score=0.5904412
+document_id=7ad5a50c-ee5a-4b33-8c76-2babb7aead73
+chunk_id=1
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance'
+chars=534
+
+## Policy Summary ### Coverage and Benefits - The policy provides **Comprehensive Cover** and **Third Party Liability**. - Benefits include: - Personal Accident Benefit for Driver. - Roadside Assistance (00800973007). - **3 Days Free Small Car Replacement**. ### Key Details and Conditions - Policy Period: **20-Sep-2026** to **19-Sep-2027**. - Vehicle: **FORD MUSTANG** (Year **2016**), valued at **QAR 47,406**. - Important Condition: The driver must hold a valid license, and the vehicle must only be used for its licensed purpose.
+
+--- Q1 CHUNK 5 END ---
+
+--- Q1 CHUNK 6 START ---
+collection=general
+score=0.5885185
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=6
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+ هﺬﻫ ﺐﺟﻮﻤﺑ ﻰﻄﻐﻣ ثدﺎﺣ ﺔﺠﻴﺘﻧ ﺔﺒﻛﺮﻤﻟﺎﺑ ﻖﺤﻠﺗ ﻲﺘﻟا راﺮﺿﻷا ﺮﻳﺪﻘﺗ ﻲﻓ ةرﺮﻀﺘﻤﻟا
+damage to the vehicle resulting from an accident covered under ﺮﻄﻗ فﺮﺼﻣ ﻦﻣ ﺪﻤﺘﻌﻣ تﺎﺒﻛﺮﻣ راﺮﺿأ ﺮﻴﺒﺧ ﻒﻴﻠﻜﺘﺑ ﺔﻛﺮﺸﻟا مﻮﻘﺗ ،ﺔﻘﻴﺛﻮﻟا
+this insurance policy, the Company shall delegate a vehicles رﺮﻀﻟا ﺔﻴﻄﻐﺗ ىﺪﻣو ﺎﻬﺘﻤﻴﻗ ﺮﻳﺪﻘﺗو راﺮﺿﻷا ﺪﻳﺪﺤﺗ ﻦﻤﻀﺘﻳ ﺮﻳﺮﻘﺗ داﺪﻋﻹ يﺰﻛﺮﻤﻟا
+damage adjustor authorized by the Qatar Central Bank to prepare ﻞﻤﺤﺘﺗو .عاﺰﻨﻟا ﻞﺤﻟ ﺮﻴﺒﺨﻠﻟ ﺔﻴﻧﺎﺜﻟا/ﺔﻴﺋﺎﻬﻨﻟا تﺎﻴﺻﻮﺘﻟا ﻊﻣ ،ﻦﻴﻣﺄﺘﻟا ﺔﻘﻴﺛو ﺐﺟﻮﻤﺑ
+a report that includes a determination of the damage, an ﻚﻟﺬﺑ ﺔﻛﺮﺸﻟا ﻢﻘﺗ ﻢﻟ اذإو .ءاﺮﺟﻹا اﺬﻬﺑ ﺔﻘﻠﻌﺘﻤﻟا مﻮﺳﺮﻟاو ﻒﻴﻟﺎﻜﺘﻟا ﻊﻴﻤﺟ ﺔﻛﺮﺸﻟا
+estimate of its value, and the extent to which the damage is
+covered under the insurance policy together with the adjustor’s
+final / second recommendations for resolving the dispute. The
+Company shall pay all related costs and fees for this procedure. If
+the Company fails to do so
+
+Page 5 of 6
+MTP/P/MC/2026/6352
+within 5 working days from the date of the dispute, the Insured ﺐﺴﺣ ،رﺮﻀﺘﻤﻟا فﺮﻄﻟا وأ
+
+--- Q1 CHUNK 6 END ---
+
+--- Q1 CHUNK 7 START ---
+collection=customer
+score=0.5836133
+document_id=a486dad4-54d6-4992-9078-1941c46c86ed
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name='MOTOR INSURANCE'
+chars=496
+
+## Policy Overview This policy provides Comprehensive Cover for the vehicle. ### Coverage and Benefits - Third Party Liability and Personal Accident Benefit for Driver. - Roadside Assistance. - 3 Days Free Small Car Replacement. ### Eligibility and Conditions - Driver must hold a valid license for the vehicle. - Driver must drive with permission. - The vehicle must not be used except for the purpose for which it is licensed. ### Costs - Policy Premium: QAR 1,000. - Vehicle Value: QAR 47,406.
+
+--- Q1 CHUNK 7 END ---
+
+--- Q1 CHUNK 8 START ---
+collection=customer
+score=0.58131844
+document_id=a486dad4-54d6-4992-9078-1941c46c86ed
+chunk_id=1
+policy_number='MTP/P/MC/2026/6352'
+policy_name='MOTOR INSURANCE'
+chars=372
+
+## Policy Summary - **Coverage and Costs:** - Type of Cover: Comprehensive - Policy Premium: QAR 1,000 - Vehicle Value: QAR 47,406 - **Key Benefits Included:** - Third Party Liability and Personal Accident Benefit for Driver. - 3 Days Free Small Car Replacement. - **Important Conditions:** - The driver must hold a valid license for the vehicle and drive with permission.
+
+--- Q1 CHUNK 8 END ---
+
+--- Q1 CHUNK 9 START ---
+collection=general
+score=0.5806248
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+Page 3 of 6
+MTP/P/MC/2026/6352
+an accident or breakdown, not to leave the vehicle unattended يدﺎﻔﺘﻟ ﺔﻣزﻼﻟا تﺎﻃﺎﻴﺘﺣﻻا ذﺎﺨﺗا نودو ﺔﺳاﺮﺣ نود ﺔﺒﻛﺮﻤﻟا كﺮﺘﻳ ﻻ نأ ﻪﻴﻠﻋ
+or without the necessary precautions to avoid further loss or .ﻞﻄﻌﻟا وأ ثدﺎﺤﻟا ﻦﻣ راﺮﺿأ لﻮﺼﺣ
+damage.
+6) The Insured or his/her representative shall, in the event of an ﺔﺒﻟﺎﻄﻣ ﻪﻨﻋ ﺄﺸﻨﻳ ﺪﻗ ثدﺎﺣ عﻮﻗو لﺎﺣ ﻲﻓ ﻪﻨﻋ بﻮﻨﻳ ﻦﻣ وأ ﻪﻟ ﻦﻣﺆﻤﻟا مﺰﺘﻠﻳ (6
+accident that might give rise to a claim for compensation ﺔﻋﺎﺳ 48 ﺎﻫﺎﺼﻗأ ةﺪﻣ لﻼﺧ ًﺎﻴﺑﺎﺘﻛ ﺔﻛﺮﺸﻟا غﻼﺑﺈﺑ ﺔﻘﻴﺛﻮﻟا هﺬﻫ ﺐﺟﻮﻤﺑ ﺾﻳﻮﻌﺘﻟﺎﺑ
+pursuant to this policy, notify the company of this in writing ﺄﺸﻨﺗ ﺪﻗ ﺔﻴﻓﺎﺿإ ةرﺎﺴﺧ يأ ﻪﻨﻋ بﻮﻨﻳ ﻦﻣ وأ ﻪﻟ ﻦﻣﺆﻤﻟا ﻞﻤﺤﺘﻳو ،ثدﺎﺤﻟا عﻮﻗو ﻦﻣ
+within a maximum period of 48 hours after the occurrence of the ﻻإ ثدﺎﺤﻟا ﻊﻗﻮﻣ ﻦﻣ ﺔﺒﻛﺮﻤﻟا ﻞﻘﻧ ﻪﻟ ﻦﻣﺆﻤﻠﻟ زﻮﺠﻳ ﻻو .ماﺰﺘﻟﻻا اﺬﻫ ﺔﻔﻟﺎﺨﻣ ﻦﻋ
+accident. The Insured or his/her representative shall be obligated .ﺔﻛﺮﺸﻠﻟ ثدﺎﺤﻟا ﻦﻋ ﺔﻃﺮﺸﻟا ﺮﻳﺮﻘﺗ ﻚﻟذ ﺪﻌﺑ مﺪﻘﻳو ،ﺔﻃﺮﺸﻟا ﺔﻘﻓاﻮﻤﺑ
+to bear any additional loss that may result from a breach of this
+obligati
+
+--- Q1 CHUNK 9 END ---
+
+--- Q1 CHUNK 10 START ---
+collection=customer
+score=0.5803251
+document_id=9f2eb857-b618-4416-b2be-b4c672e23929
+chunk_id=2
+policy_number='MTP/P/MC/2026/6352'
+policy_name='MOTOR INSURANCE'
+chars=435
+
+This section outlines the policy coverage, benefits, and limitations. - The policy includes Comprehensive Cover, Third Party Liability, and Personal Accident Benefit for Driver. - Roadside Assistance is covered, and there is 3 Days Free Small Car Replacement. - The insured must not use the vehicle except for the purpose for which it is licensed. - The driver must hold a valid license for the vehicle in accordance with traffic laws.
+
+--- Q1 CHUNK 10 END ---
+
+--- Q1 CHUNK 11 START ---
+collection=customer
+score=0.57725096
+document_id=c93588f5-6ada-421d-8d56-04770caec7cf
+chunk_id=
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance Policy Schedule'
+chars=550
+
+## Motor Insurance Policy Coverage Details This document outlines the terms, coverage, and usage rules for the motor insurance policy. - Coverage includes Third Party Liability, Personal Accident Benefit for Driver, Roadside Assistance, 3 Days Free Small Car Replacement, and Comprehensive Cover. - The insured must not use the vehicle except for the purpose for which it is licensed. - The driver must be the insured or someone with permission, provided that the person driving holds a valid license for that vehicle in accordance with traffic laws.
+
+--- Q1 CHUNK 11 END ---
+
+--- Q1 CHUNK 12 START ---
+collection=general
+score=0.57597697
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=1
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+ependent entity to ensure that the repair was carried out
+properly.
+5) The Insured shall bear the first QR 350 for each and every ﺔﺒﻛﺮﻤﻟا ﻖﺋﺎﺳ نﺎﻛ اذإ ثدﺎﺣ ﻞﻛ ﻦﻋ يﺮﻄﻗ لﺎﻳر 350 لوأ ﻪﻟ ﻦﻣﺆﻤﻟا ﻞﻤﺤﺘﻳ (5
+accident should the vehicle’s driver, at the time of the accident, .ﺔﻨﺳ 21 ﻦﻋ هﺮﻤﻋ ﻞﻘﻳ ثدﺎﺤﻟا ﺖﻗو
+be less than 21 years of age.
+6) The insured shall bear 30% of the net value of the damages ﺔﺒﻛﺮﻤﻟﺎﺑ ﻖﺤﻠﺗ ﻲﺘﻟا راﺮﺿﻷا ﺔﻤﻴﻗ ﻲﻓﺎﺻ ﻦﻣ %30 ﺔﺒﺴﻧ ﻪﻟ ﻦﻣﺆﻤﻟا ﻞﻤﺤﺘﻳ (6
+caused to the vehicle by an act of an unknown entity, subject to .ﺔﻘﻴﺛﻮﻟا ﺐﺟﻮﻤﺑ ةرﺮﻘﻤﻟا كﻼﻬﺘﺳﻻا ﺔﺒﺴﻧ ﻢﺼﺧ ةﺎﻋاﺮﻣ ﻊﻣ ،ﺔﻓوﺮﻌﻣ ﺮﻴﻏ ﺔﻬﺟ ﻞﻌﻔﺑ
+deducting the prescribed depreciation percentage based the
+policy.
+7) In the event that the vehicle is considered a total loss, the ﺔﻤﻴﻗ سﺎﺳأ ﻰﻠﻋ ﺾﻳﻮﻌﺘﻟا بﺎﺴﺘﺣا ﻢﺘﻳ ،ﺔﻴﻠﻛ ةرﺎﺴﺧ ﺔﺒﻛﺮﻤﻟا رﺎﺒﺘﻋا لﺎﺣ ﻲﻓ (7
+compensation will be calculated on the basis of the vehicle’s ﺪﺤﺑو %5 ﻰﻧدأ ﺪﺤﺑو ﺮﻬﺷ ﻞﻛ ﻦﻋ %2 كﻼﻬﺘﺳا ﺔﺒﺴﻧ ﻢﺼﺧ ﺪﻌﺑ ﺔﺒﻛﺮﻤﻠﻟ ﻦﻴﻣﺄﺘﻟا
+insured value less depreciation at the rate of 2% for each month .ثدﺎﺤﻟا ﺦﻳرﺎ
+
+--- Q1 CHUNK 12 END ---
+
+--- Q1 CHUNK 13 START ---
+collection=customer
+score=0.57539487
+document_id=7ad5a50c-ee5a-4b33-8c76-2babb7aead73
+chunk_id=2
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance'
+chars=433
+
+## Policy Overview ### Coverage and Benefits - Comprehensive Cover and Third Party Liability are covered. - Benefits include Personal Accident for Driver, Roadside Assistance (**00800973007**), and **3 Days** Free Small Car Replacement. ### Key Conditions - The vehicle value is **QAR 47,406** (Premium: **QAR 1,000**). - Coverage requires the driver to hold a valid license. - The vehicle must only be used for its licensed purpose.
+
+--- Q1 CHUNK 13 END ---
+
+--- Q1 CHUNK 14 START ---
+collection=general
+score=0.5743217
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=1
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+cident. The Insured or his/her representative shall be obligated .ﺔﻛﺮﺸﻠﻟ ثدﺎﺤﻟا ﻦﻋ ﺔﻃﺮﺸﻟا ﺮﻳﺮﻘﺗ ﻚﻟذ ﺪﻌﺑ مﺪﻘﻳو ،ﺔﻃﺮﺸﻟا ﺔﻘﻓاﻮﻤﺑ
+to bear any additional loss that may result from a breach of this
+obligation. The Insured shall not move the vehicle from the scene
+of the accident except with the approval of the police, and shall
+thereafter submit the police report on the accident to the
+Company.
+7) The Insured shall not make any settlement with the third party ةرﺎﺴﺨﻟا ﻲﻓ ﺐﺒﺴﺘﻤﻟا ﺚﻟﺎﺜﻟا فﺮﻄﻟا ﻊﻣ ﺔﻳﻮﺴﺗ يأ ءاﺮﺟإ ﻪﻟ ﻦﻣﺆﻤﻠﻟ زﻮﺠﻳ ﻻ (7
+causing the loss or damage to the insured vehicle without the راﺮﻗﻹا ﻪﻟ زﻮﺠﻳ ﻻو ،ﺔﻴﺑﺎﺘﻜﻟا ﺔﻛﺮﺸﻟا ﺔﻘﻓاﻮﻣ نود ﺎﻬﻴﻠﻋ ﻦﻣﺆﻤﻟا ﺔﺒﻛﺮﻤﻠﻟ رﺮﻀﻟا وأ
+written consent of the Company and shall not make any ﺐﺟﻮﻤﺑ ﺔﺒﻟﺎﻄﻣ ﻪﻨﻋ ﺄﺸﻨﻳ ﺪﻗ ﻲﺋﺎﻨﺟ ﻞﻌﻓ وأ ﺔﻗﺮﺳ عﻮﻗو لﺎﺣ ﻲﻓو .ﺔﻴﻟوﺆﺴﻤﻟﺎﺑ
+admission of liability or responsibility. In the event of a theft or a ﻂﺒﻀﻟ ﺔﻛﺮﺸﻟا ﻊﻣ نوﺎﻌﺘﻟاو ًارﻮﻓ ﺔﻃﺮﺸﻟا غﻼﺑإ ﻪﻟ ﻦﻣﺆﻤﻟا ﻰﻠﻋ ﺐﺠﻳ ،ﺔﻘﻴﺛﻮﻟا هﺬﻫ
+criminal act that may give rise to a claim pursuant to this policy, 
+
+--- Q1 CHUNK 14 END ---
+
+--- Q1 CHUNK 15 START ---
+collection=customer
+score=0.5711522
+document_id=561b12ff-fcff-4f98-bb46-f8df2d4086e5
+chunk_id=2
+policy_number='MTP/P/MC/2026/6352'
+policy_name='Motor Insurance'
+chars=558
+
+## Policy Overview ### Coverage and Benefits - Comprehensive Cover and Third Party Liability are covered. - Benefits include Personal Accident for Driver, Roadside Assistance (00800973007), and **3 Days Free Small Car Replacement**. ### Important Conditions - **Licensed Driver**: The driver must hold a valid license for the vehicle according to traffic laws. - **Usage Limit**: The vehicle must only be used for the purpose for which it is licensed. - **Liability**: Company maximum liability for repair/indemnity is as per chapter one/company obligations.
+
+--- Q1 CHUNK 15 END ---
+
+--- Q1 CHUNK 16 START ---
+collection=general
+score=0.56785583
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=7
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+l pay all related costs and fees for this procedure. If
+the Company fails to do so
+
+Page 5 of 6
+MTP/P/MC/2026/6352
+within 5 working days from the date of the dispute, the Insured ﺐﺴﺣ ،رﺮﻀﺘﻤﻟا فﺮﻄﻟا وأ ﻪﻟ ﻦﻣﺆﻤﻠﻟ زﻮﺠﻳ ،عاﺰﻨﻟا ﺦﻳرﺎﺗ ﻦﻣ ﻞﻤﻋ مﺎﻳأ 5 لﻼﺧ
+or the injured party, as the case may be, may carry out this .ﺔﻛﺮﺸﻟا ﺔﻘﻔﻧ ﻰﻠﻋ ءاﺮﺟﻹا اﺬﻬﺑ مﺎﻴﻘﻟا ،ﺔﻟﺎﺤﻟا
+procedure at the cost of the Company.
+12) The Qatari courts shall be the competent courts to adjudicate .ﺔﻘﻴﺛﻮﻟا هﺬﻫ ﻦﻋ ﺄﺸﻨﺗ ﺪﻗ تﺎﻋزﺎﻨﻣ يأ ﻲﻓ ﻞﺼﻔﻟﺎﺑ ﺔﻳﺮﻄﻘﻟا ﻢﻛﺎﺤﻤﻟا ﺺﺘﺨﺗ (12
+any disputes that may arise from this policy.
+Chapter Four: General Exclusions ﺔﻣﺎﻌﻟا تاءﺎﻨﺜﺘﺳﻻا :ﻊﺑاﺮﻟا ﻞﺼﻔﻟا
+1) This insurance does not cover loss, damage or accidents that ﺔﺠﻴﺘﻧ ﺔﺒﻛﺮﻤﻟﺎﺑ ﻖﺤﻠﺗ ﻲﺘﻟا ثداﻮﺤﻟا وأ رﺮﻀﻟا وأ ةرﺎﺴﺨﻟا ﻦﻴﻣﺄﺘﻟا اﺬﻫ ﻲﻄﻐﻳ ﻻ (1
+have occurred to the vehicle due to any of the factors indicated :ﺔﻴﻟﺎﺘﻟا ﻞﻣاﻮﻌﻟا ﻦﻣ يأ
+below:
+• Floods, torrents, storms, sandstorms, hurricanes, volcanic ﻦﻴﻛاﺮﺒﻟاو ﺮﻴﺻﺎﻋﻷاو ﺔﻴﻠﻣﺮﻟا ﻒﺻاﻮﻌﻟاو ﻒﺻاﻮﻌﻟاو لﻮﻴﺴﻟاو تﺎﻧﺎﻀﻴﻔﻟا •
+er
+
+--- Q1 CHUNK 16 END ---
+
+--- Q1 CHUNK 17 START ---
+collection=general
+score=0.55165124
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=1
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+ﻋو تاﺮﺘﻣﻮﻠﻴﻜﻟﺎﺑ
+the same type and year of manufacture, taking into account
+increase/decrease in the vehicle value as a result of the mileage
+covered by the vehicle calculated in kilometers, the number and
+magnitude of previous accidents, and the type and nature of the
+vehicle’s use.
+The Company shall bear the proper expenses incurred by the ﻞﻘﻧ وأ ﺔﺳاﺮﺤﻟ ﻪﻟ ﻦﻣﺆﻤﻟا ﺎﻫﺪﺒﻜﺘﻳ ﻲﺘﻟا ﺔﺒﺳﺎﻨﻤﻟا ﻒﻳرﺎﺼﻤﻟا ﻞﻤﺤﺘﺑ ﺔﻛﺮﺸﻟا مﺰﺘﻠﺗ
+Insured for guarding or transporting the damaged vehicle within نﻮﺴﻤﺧو ﺔﺋﺎﻤﺛﻼﺛ) يﺮﻄﻗ لﺎﻳر 350 هﺎﺼﻗأ ﻎﻠﺒﻣ دوﺪﺣ ﻲﻓ ةرﺮﻀﺘﻤﻟا ﺔﺒﻛﺮﻤﻟا
+a maximum amount of QAR 350 (Three Hundred Fifty Qatari .(يﺮﻄﻗ لﺎﻳر
+Riyal).
+Exceptions to Chapter One لوﻷا ﻞﺼﻔﻟا تاءﺎﻨﺜﺘﺳا
+The Company shall not be responsible for paying any :ﺔﻴﻟﺎﺘﻟا تﻻﺎﺤﻟا ﻲﻓ ﺾﻳﻮﻌﺗ يأ ﻊﻓﺪﺑ ﺔﻛﺮﺸﻟا مﺰﺘﻠﺗ ﻻ
+compensation in the following cases:
+1. The deductible to be borne by the Insured for each accident as لوﺪﺟ ﻲﻓ ﻦﻴﺒﻣ ﻮﻫ ﺎﻤﻟ ًﺎﻘﻓو ثدﺎﺣ ﻞﻛ ﻦﻋ ﻪﻟ ﻦﻣﺆﻤﻟا ﻪﻠﻤﺤﺘﻳ يﺬﻟا ﻞﻤﺤﺘﻟا .1
+indicated in the policy schedule as well as the depreciati
+
+--- Q1 CHUNK 17 END ---
+
+--- Q1 CHUNK 18 START ---
+collection=general
+score=0.5497735
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=4
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+. Loss or damage to the vehicle’s load or additional vehicle ﻞﺜﻣ ﺔﻴﻓﺎﺿﻹا ﺎﻬﺗﺎﻘﺤﻠﻣ وأ ﺔﺒﻛﺮﻤﻟا ﺔﻟﻮﻤﺤﺑ ﻖﺤﻠﻳ يﺬﻟا ﻒﻠﺘﻟا وأ ةرﺎﺴﺨﻟا .7
+accessories, such as telephones, televisions, and the like, or any ﻢﻟ ﺎﻣ ،ﺔﺒﻛﺮﻤﻟا ﻲﻓ ةدﻮﺟﻮﻤﻟا تﺎﻜﻠﺘﻤﻤﻟا ﻦﻣ ﺎﻫﺮﻴﻏ وأ نﻮﻳﺰﻔﻠﺘﻟا ةﺰﻬﺟأ وأ ﻒﺗاﻮﻬﻟا
+other property located in the vehicle, unless specifically stated in داﺪﺳو ﺔﻴﻨﻴﻣﺄﺘﻟا ﺎﻬﺘﻤﻴﻗ نﺎﻴﺑ ﻊﻣ ﺎﻬﺗﺎﻘﺤﻠﻣ وأ ﺔﻘﻴﺛﻮﻟا ﻲﻓ ﺔﺣاﺮﺻ ﻚﻟذ ﻰﻠﻋ ﺺﻨﻳ
+the policy or its endorsements with a statement of their .ﺎﻬﻨﻋ ﻖﺤﺘﺴﻤﻟا ﻲﻓﺎﺿﻹا ﻂﺴﻘﻟا
+insurance value and the payment of the due additional insurance
+premium in respect thereof.
+Chapter Two: Obligations of the Insured ﻪﻟ ﻦﻣﺆﻤﻟا تﺎﻣاﺰﺘﻟا :ﻲﻧﺎﺜﻟا ﻞﺼﻔﻟا
+1. The Insured shall pay the agreed premium to the Company. .ﺔﻛﺮﺸﻠﻟ ﻪﻴﻠﻋ ﻖﻔﺘﻤﻟا ﻂﺴﻘﻟا داﺪﺴﺑ ﻪﻟ ﻦﻣﺆﻤﻟا مﺰﺘﻠﻳ .1
+2. The Insured shall commit to honesty and goodwill in ﺮﺛﺆﺗ ﺪﻗ تﺎﻣﻮﻠﻌﻣ وأ تﺎﻧﺎﻴﺑ يأ ﻢﻳﺪﻘﺗ ﻲﻓ ﺔﻴﻨﻟا ﻦﺴﺣو ﺔﻧﺎﻣﻷﺎﺑ ﻪﻟ ﻦﻣﺆﻤﻟا مﺰﺘﻠﻳ .2
+presenting any data or information that may affect this contract .ﻪﺠﺋﺎﺘﻧ وأ ﺪﻘﻌﻟا اﺬﻫ ﻰﻠﻋ
+or th
+
+--- Q1 CHUNK 18 END ---
+
+--- Q1 CHUNK 19 START ---
+collection=general
+score=0.54934895
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=11
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+ﺂﻛ ﺎﻬﻠﻴﻐﺸﺗ ءﺎﻨﺛأ ﺎﻬﻴﻠﻋ ﻦﻣﺆﻤﻟا
+machines at various sites. Coverage is limited to a damage .ﺔﻳدﺎﻋ ﺔﺒﻛﺮﻤﻛ ﺔﻳدﺎﻌﻟا قﺮﻄﻟا ﻰﻠﻋ ﺎﻫﺮﻴﺳ ءﺎﻨﺛأ ﺎﻬﺑ ﻖﺤﻠﻳ يﺬﻟا رﺮﻀﻟا
+sustained while being driven on ordinary roads like a normal
+vehicle.
+• The insurance company shall not be liable for any ﻞﻴﻤﺤﺘﻟا ﺔﺠﻴﺘﻧ ﺔﺒﻛﺮﻤﻠﻟ رﺮﺿ عﻮﻗو لﺎﺣ ﻲﻓ ﺾﻳﻮﻌﺗ يﺄﺑ ﻦﻴﻣﺄﺘﻟا ﺔﻛﺮﺷ مﺰﺘﻠﺗ ﻻ •
+compensation in the event of damage sustained by the vehicle دﺪﻌﻟا زوﺎﺠﺗ وأ عﺎﻔﺗرﻻا وأ ضﺮﻌﻟا وأ لﻮﻄﻠﻟ ﺎﻬﺑ حﻮﻤﺴﻤﻟا دوﺪﺤﻟا زوﺎﺠﺗ وأ ﺪﺋاﺰﻟا
+as a result of overload or exceeding allowed limits of width, ﺐﺒﺴﻟا ﻮﻫ ﻚﻟذ ﻦﻣ يأ نأ ﺖﺒﺜﻳ نأ طﺮﺸﺑ ،ًﺎﻧﻮﻧﺎﻗ بﺎﻛﺮﻟا ﻦﻣ ﻪﺑ حﻮﻤﺴﻤﻟا
+length or height or exceeding the legally authorized number of .رﺮﻀﻠﻟ لﺎﻌﻔﻟا ﺮﺷﺎﺒﻤﻟا
+passengers, provided that it is proven that any of the above is
+the direct effective cause of the damage.
+Chapter Five: Cases of Forfeiture of the Insured’s Right for ﻲﻓ ﻪﻟ ﻦﻣﺆﻤﻟا ﻖﺣ طﻮﻘﺳ تﻻﺎﺣ :ﺲﻣﺎﺨﻟا ﻞﺼﻔﻟا
+Compensation ﺾﻳﻮﻌﺘﻟا
+The insured’s right to compensation shall be forfeited and he/she ﻪﻟ ﺎﻬﺘﻌﻓد ن
+
+--- Q1 CHUNK 19 END ---
+
+--- Q1 CHUNK 20 START ---
+collection=general
+score=0.546878
+document_id=75a70156-4e14-48f8-9ab7-74784e509749
+chunk_id=2
+policy_number='MTP/P/MC/2026/6352'
+policy_name=None
+chars=1000
+
+sation will be calculated on the basis of the vehicle’s ﺪﺤﺑو %5 ﻰﻧدأ ﺪﺤﺑو ﺮﻬﺷ ﻞﻛ ﻦﻋ %2 كﻼﻬﺘﺳا ﺔﺒﺴﻧ ﻢﺼﺧ ﺪﻌﺑ ﺔﺒﻛﺮﻤﻠﻟ ﻦﻴﻣﺄﺘﻟا
+insured value less depreciation at the rate of 2% for each month .ثدﺎﺤﻟا ﺦﻳرﺎﺗ ﻰﺘﺣ ﺔﻘﻴﺛﻮﻟا هﺬﻫ ﺦﻳرﺎﺗ ﻦﻣ تﺎﺒﻛﺮﻤﻟا عاﻮﻧأ ﻊﻴﻤﺠﻟ %20 ﻰﺼﻗأ
+with a minimum of 5% and a maximum of 20% for all makes of
+vehicles from the date of this policy until the date of the accident.
+8) Depreciation of new parts replaced in accordance with the ﻦﻋ ﺔﺌﺷﺎﻨﻟا تﺎﻣاﺰﺘﻟﻼﻟ ًﺎﻘﻓو ﺔﻟﺪﺒﺘﺴﻤﻟا ةﺪﻳﺪﺠﻟا ءاﺰﺟﻷا كﻼﻬﺘﺳا بﺎﺴﺘﺣا ﻢﺘﻳ (8
+obligations arising from this policy, will be calculated as follows: :ﻲﻠﻳ ﺎﻤﻛ ﺔﻘﻴﺛﻮﻟا هﺬﻫ
+• Parts for a vehicle that is insured immediately upon its نﺎﻛو ،ﺔﻟﺎﻛﻮﻟا ﻦﻣ ةﺪﻳﺪﺟ ﺎﻬﺋاﺮﺷ رﻮﻓ ﺎﻬﻴﻠﻋ ﻦﻴﻣﺄﺘﻟا ﻢﺗ ﺔﺒﻛﺮﻤﺑ ﺔﺻﺎﺨﻟا ءاﺰﺟﻷا •
+purchase brand new from its agency, the model of which is of the ﺔﻨﺴﻠﻟ كﻼﻬﺘﺳﻻا ﻦﻣ ﻰﻔﻌُﺗ ،ﺎﻬﻟ ﺔﻘﺑﺎﺴﻟا ﺔﻨﺴﻟا وأ ءاﺮﺸﻟا ﺔﻨﺳ ﺲﻔﻧ ﻦﻣ ﺎﻫزاﺮﻃ
+same year of purchase or the year preceding it, are exempt from .ﻰﻟوﻷا ﺔﻴﻨﻴﻣﺄﺘﻟا
+depreciation for the first insurance year
+
+--- Q1 CHUNK 20 END ---
+
